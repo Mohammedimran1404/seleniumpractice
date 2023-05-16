@@ -1,0 +1,18 @@
+{
+"firstname":"mohammed",
+"lastname":"imran",
+"address":[
+{ 
+"street":"abc",
+      "city":  "hyderabad",
+       "state": "telangana"
+         
+},
+{
+"street":"abd",
+      "city":  "secundrabad",
+       "state": "telangana"
+}
+
+]
+}
