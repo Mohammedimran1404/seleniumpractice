@@ -8,8 +8,6 @@ import org.openqa.selenium.support.ui.Select;
 
 public class Pom2ndMethod {
 	WebDriver driver;
-	
-
 	Pom2ndMethod(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);

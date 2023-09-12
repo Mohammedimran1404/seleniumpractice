@@ -3,12 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="different_pomtechniques.Pom2ndMethodMainMethodby">
+      <class name="ValidationsSeleniumPrograms.DragAndDrop">
         <methods>
-          <include name="mercuryToursPage"/>
-          <include name="setUp"/>
+          <include name="dragAndDrop"/>
         </methods>
-      </class> <!-- different_pomtechniques.Pom2ndMethodMainMethodby -->
+      </class> <!-- ValidationsSeleniumPrograms.DragAndDrop -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

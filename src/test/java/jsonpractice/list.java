@@ -15,14 +15,12 @@ public class list implements ITestListener{
 	ExtentReports reports;
 	ExtentTest test;
 
-	@Override
 	public void onTestStart(ITestResult result) {
 		String methodname = result.getMethod().getMethodName(); //to capture the method
 		test=reports.createTest(methodname);
 		
 	}
 
-	@Override
 	public void onTestSuccess(ITestResult result) {
 		String methodname = result.getMethod().getMethodName();
 		System.out.println("test cases pass");
@@ -30,20 +28,18 @@ public class list implements ITestListener{
 		test.log(Status.INFO, "INFO");
 
 	}
-	@Override
 	public void onTestFailure(ITestResult result) {
 		String methodname = result.getMethod().getMethodName();
 		test.log(Status.FAIL, "Fail");
 	}
 
-	@Override
+	
 	public void onTestSkipped(ITestResult result) {
 		String methodname = result.getMethod().getMethodName();
 		test.log(Status.SKIP, "Skip");
 	}
 
 	
-	@Override
 	public void onStart(ITestContext context) {
 		sparkreporter= new ExtentSparkReporter("C:\\Users\\ImranMohd-Kairos\\EclipseFolder\\Seleniumpractice\\Extents\\Reports.html");
 		sparkreporter.config().setDocumentTitle("insta");
@@ -60,7 +56,7 @@ public class list implements ITestListener{
 		
 	}
 
-	@Override
+	
 	public void onFinish(ITestContext context) {
 		reports.flush();
 		
