@@ -3,11 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="ValidationsSeleniumPrograms.DragAndDrop">
+      <class name="ValidationsSeleniumPrograms.AjioLoginPage">
         <methods>
-          <include name="dragAndDrop"/>
+          <include name="login" invocation-numbers="2"/>
+          <include name="tearDown"/>
+          <include name="launch"/>
         </methods>
-      </class> <!-- ValidationsSeleniumPrograms.DragAndDrop -->
+      </class> <!-- ValidationsSeleniumPrograms.AjioLoginPage -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

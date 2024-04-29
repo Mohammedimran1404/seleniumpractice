@@ -15,6 +15,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class PracticeDatePicker {
 	 static WebDriver driver;
+	 
 	public static void main(String[] args) throws InterruptedException {
 		WebDriverManager.chromedriver().setup();
 		driver= new ChromeDriver();
@@ -35,6 +36,7 @@ public class PracticeDatePicker {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOf(datepickerSearchbar));
 		datepickerSearchbar.click();
+		
 		String Btn="backward";
 		if(Btn.equalsIgnoreCase("forward")) {
 		for(int i=1;i<=3;i++) {
@@ -42,6 +44,7 @@ public class PracticeDatePicker {
 			By nextbuttonL=By.cssSelector("span.ui-icon.ui-icon-circle-triangle-e");
 			WebElement nextbutton=driver.findElement(nextbuttonL);
 			nextbutton.click();
+			nextbutton.isEnabled();
 		  }
 		}
 		else {
@@ -72,6 +75,8 @@ public class PracticeDatePicker {
 				System.out.println(actual);
 				String expected="05/11/2023";
 				Assert.assertEquals(actual, expected);
+				
+				
 		 }
 		 
 		 driver.quit();

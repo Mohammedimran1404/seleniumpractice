@@ -23,15 +23,15 @@ public class ValidatingDropDowns {
 		
 		By dropdownL= By.cssSelector("select#dropdown-class-example");
 		 WebElement dropdown=driver.findElement(dropdownL);
-		 
-		 // Validating single value in the dropdown
-		 String expected ="Option3";
-		 Select sele = new Select(dropdown);
-		 sele.selectByIndex(3);
-		 // this will store the selected dropdown value
-		String actual= sele.getFirstSelectedOption().getText();
-		System.out.println(actual);
-		Assert.assertEquals(actual, expected);
+//		 
+//		 // Validating single value in the dropdown
+//		 String expected ="Option3";
+//		 Select sele = new Select(dropdown);
+//		 sele.selectByIndex(3);
+//		 // this will store the selected dropdown value
+//		String actual= sele.getFirstSelectedOption().getText();
+//		System.out.println(actual);
+//		Assert.assertEquals(actual, expected);
 		 
 		
 		 
@@ -39,17 +39,18 @@ public class ValidatingDropDowns {
 		 
 		 
 		 // validatiing all the values in the dropdown
-//		 String expected[]= {"Select","Option1","Option2","Option3"};
-//		 
-//		 Select sele = new Select(dropdown);
-//		List<WebElement> options= sele.getOptions();
-//		   
-//		  for(int i=0;i<options.size();i++) {
-//			  options.get(i).getSize();
-//			  
-//			  
-//			  Assert.assertEquals(options.get(i).getText(), expected[i]);
-//		  }
+		 String expected[]= {"Select","Option1","Option2","Option3"};
+		 
+		 
+		 Select sele = new Select(dropdown);
+		List<WebElement> options= sele.getOptions();
+		   
+		  for(int i=0;i<options.size();i++) {
+		WebElement option=	  options.get(i);
+	    String s=	option.getText();
+			  
+			  Assert.assertEquals(s, expected[i]);
+		  }
 		  System.out.println("PASSED");
 		  driver.close();
 		  
