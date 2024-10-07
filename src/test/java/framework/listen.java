@@ -16,7 +16,7 @@ public class listen implements ITestListener {
 	ExtentReports report;
       
 
-	@Override
+	
 	public void onTestStart(ITestResult result) {
 	String methodName = result.getMethod().getMethodName();
 	test=report.createTest(methodName);
@@ -25,26 +25,25 @@ public class listen implements ITestListener {
 		
 	}
 
-	@Override
 	public void onTestSuccess(ITestResult result) {
 		String methodName = result.getMethod().getMethodName();
 		test.log(Status.PASS, "PASS");
 	}
 
-	@Override
+	
 	public void onTestFailure(ITestResult result) {
 		String methodName = result.getMethod().getMethodName();
 		test.log(Status.FAIL, "FAIL");
 	}
 
-	@Override
+	
 	public void onTestSkipped(ITestResult result) {
 		String methodName = result.getMethod().getMethodName();
 		test.log(Status.SKIP, "SKIP");
 	}
 
 
-	@Override
+	
 	public void onStart(ITestContext context) {
 	ExtentSparkReporter htmlreport= new ExtentSparkReporter("C:\\Users\\ImranMohd-Kairos\\EclipseFolder\\Seleniumpractice\\Reports"+".html");
 
@@ -66,7 +65,7 @@ public class listen implements ITestListener {
 		
 	}
 
-	@Override
+	
 	public void onFinish(ITestContext context) {
 		report.flush();
 		

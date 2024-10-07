@@ -51,27 +51,27 @@ public class DragAndDrop {
 //		.perform();
 		
 		
-//		driver.get("https://jqueryui.com/droppable/");
-//		By scrollL=By.cssSelector("div.demo-list h2:first-child");
-//		WebElement scroll =driver.findElement(scrollL);
-//		
-//		JavascriptExecutor js = (JavascriptExecutor)driver;
-//		js.executeScript("arguments[0].scrollIntoView(true)",scroll );
-//		
-//		driver.switchTo().frame(0);
-//		
-//		By dragL=By.cssSelector("div#draggable");
-//		WebElement drag =driver.findElement(dragL);
-//		
-//		By dropL = By.cssSelector("div#droppable");
-//		WebElement drop=driver.findElement(dropL);
-//		
-//		Actions action = new Actions(driver);
-//		action.clickAndHold(drag)
-//		.moveToElement(drop)
-//		.release()
-//		.build()
-//		.perform();
+		driver.get("https://jqueryui.com/droppable/");
+		By scrollL=By.cssSelector("div.demo-list h2:first-child");
+		WebElement scroll =driver.findElement(scrollL);
+		
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("arguments[0].scrollIntoView(true)",scroll );
+		
+		driver.switchTo().frame(0);
+		
+		By dragL=By.cssSelector("div#draggable");
+		WebElement drag =driver.findElement(dragL);
+		
+		By dropL = By.cssSelector("div#droppable");
+		WebElement drop=driver.findElement(dropL);
+		
+		Actions action = new Actions(driver);
+		action.clickAndHold(drag)
+		.moveToElement(drop)
+		.release()
+		.build()
+		.perform();
 		
 		
 	}

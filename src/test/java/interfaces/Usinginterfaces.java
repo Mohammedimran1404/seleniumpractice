@@ -2,7 +2,7 @@ package interfaces;
 
 public class Usinginterfaces implements Addition,Multilplication{
 static int z=10;
-	@Override
+	
 	public void mul() {
 		int e=c*d;
 		System.out.println(e);
@@ -12,7 +12,7 @@ static int z=10;
 		
 	}
 
-	@Override
+	
 	public void add() {
 		int c=a+b;
 		System.out.println(c);
