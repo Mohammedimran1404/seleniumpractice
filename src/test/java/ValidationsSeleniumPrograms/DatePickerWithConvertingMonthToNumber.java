@@ -40,49 +40,49 @@ public class DatePickerWithConvertingMonthToNumber {
 		wait.until(ExpectedConditions.visibilityOf(datepickerSearchbar));
 		datepickerSearchbar.click();
 
-		String targetDateStr = "28,October,2025";
+		String targetDateStr = "20,March,2025";
+		String[] newDate = targetDateStr.split(",");
 
-		String newDate[] = targetDateStr.split(",");
-
-		System.out.println(newDate[1]);
-
-		int MonthNum = Month.valueOf(newDate[1].toUpperCase()).getValue();
+		int targetDay = Integer.parseInt(newDate[0]);
+		int targetMonth = Month.valueOf(newDate[1].toUpperCase()).getValue(); // 1 for Jan, 2 for Feb
+		int targetYear = Integer.parseInt(newDate[2]);
 
 		By expMonthL = By.cssSelector(".ui-datepicker-month");
 		By expYearL = By.cssSelector(".ui-datepicker-year");
 
 		while (true) {
+		    String displayedMonth = driver.findElement(expMonthL).getText();
+		    int displayedMonthNum = Month.valueOf(displayedMonth.toUpperCase()).getValue();
 
-			String displayedMonth = driver.findElement(expMonthL).getText();
-			System.out.println(displayedMonth);
-			int MonthNu = Month.valueOf(displayedMonth.toUpperCase()).getValue();
-			String displayedYear = driver.findElement(expYearL).getText();
+		    String displayedYear = driver.findElement(expYearL).getText();
+		    int displayedYearNum = Integer.parseInt(displayedYear);
 
-			if (MonthNu == MonthNum && displayedYear.equalsIgnoreCase(newDate[2])) {
-				break;
+		    // Break if the target month and year match
+		    if (displayedMonthNum == targetMonth && displayedYearNum == targetYear) {
+		        break;
+		    }
 
-			} else if (MonthNu < MonthNum || !displayedYear.equalsIgnoreCase(newDate[2])) {
-				By nextButtonL = By.cssSelector(".ui-icon-circle-triangle-e");
-				Thread.sleep(1000);
-				driver.findElement(nextButtonL).click();
-			} else {
-				By prevBtn = By.cssSelector(".ui-icon-circle-triangle-w");
-				Thread.sleep(1000);
-				driver.findElement(prevBtn).click();
+		    By navigationButton;
+		    if (displayedYearNum < targetYear || 
+		       (displayedYearNum == targetYear && displayedMonthNum < targetMonth)) {
+		        navigationButton = By.cssSelector(".ui-icon-circle-triangle-e"); // Next button
+		    } else {
+		        navigationButton = By.cssSelector(".ui-icon-circle-triangle-w"); // Previous button
+		    }
 
-			}
-
+		    Thread.sleep(1000);
+		    driver.findElement(navigationButton).click();
 		}
 
 		By monthL = By.xpath(
-				"//table[@class='ui-datepicker-calendar']//tbody//tr//td[not(contains(@class, 'ui-datepicker-other-month'))]");
-		// this locator selects only the days which is present for the particular month
-		List<WebElement> month = driver.findElements(monthL);
-		for (WebElement element : month) {
-			if (element.getText().equals(newDate[0])) {
-				element.click();
-				break;
-			}
+		    "//table[@class='ui-datepicker-calendar']//tbody//tr//td[not(contains(@class, 'ui-datepicker-other-month'))]"
+		);
+		List<WebElement> days = driver.findElements(monthL);
+		for (WebElement day : days) {
+		    if (day.getText().equals(String.valueOf(targetDay))) {
+		        day.click();
+		        break;
+		    }
 		}
 
 //			        driver.quit(); 
